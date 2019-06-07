@@ -15,7 +15,7 @@ script:
 after_success:
 - coveralls --root . -E ".*external.*" -E ".*editor-tests.*"
 - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
-- sonar-scanner -D"sonar.projectKey=nouname_lab2" -D"sonar.organization=nouname-github" -D"sonar.sources=." -D"sonar.cfamily.build-wrapper-output=bw-output" -D"sonar.host.url=https://sonarcloud.io" -D"sonar.login=747b376842b861bda67661c609fce7cd0f15e9b6"
+- sonar-scanner -D"sonar.projectKey=nouname_2" -D"sonar.organization=nouname-github" -D"sonar.sources=." -D"sonar.cfamily.build-wrapper-output=bw-output" -D"sonar.host.url=https://sonarcloud.io" -D"sonar.login=339b9652b13ba474ea46b47e6e7cda19d9a4d38c"
 cache:
   directories:
   - "$HOME/.sonar/cache"

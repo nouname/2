@@ -19,6 +19,7 @@ static void func(int index, char *contents, int cursor, void *data) {
     UNUSED(data);
 
     assert(contents != NULL);
+    assert(cursor != -1);
 }
 
 using namespace testing;
@@ -187,7 +188,6 @@ TEST(test18, tests)
     EXPECT_STREQ(txt->cursor->line->contents, "TEST\n");
 }
 
-
 TEST(test19, tests) {
     text txt = create_text();
     load(txt, "input.txt");
@@ -224,7 +224,6 @@ TEST(test22, tests)
     EXPECT_EQ(txt->cursor->position, 5);
 }
 
-
 TEST(test23, tests)
 {
     text txt = create_text();
@@ -233,4 +232,13 @@ TEST(test23, tests)
     mcf(txt);
 
     EXPECT_EQ(txt->cursor->position, 1);
+}
+
+TEST(test24, tests) {
+    text txt = create_text();
+    load(txt, "input.txt");
+    mwcrsr(txt, 2, 2);
+
+    mpweb(txt);
+    EXPECT_NO_FATAL_FAILURE(process_forward(txt, func, NULL));
 }
